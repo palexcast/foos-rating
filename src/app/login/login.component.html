@@ -42,6 +42,19 @@
               *ngIf="registerPassword.invalid && (registerPassword.dirty || registerPassword.touched)" translate>Password required</span>
             </div>
 
+            <label for="locations">Password</label>
+            <ng-select id="locations"
+                       [items]="locations$ | async"
+                       bindLabel="city"
+                       autofocus
+                       formControlName="locations"
+                       bindValue="city">
+            </ng-select>
+            <p>If you cant find your country in the list, create an issue <a href="https://github.com/ertkjern/fuss-rating/issues">here!</a></p>
+            <div class="error"><span
+              *ngIf="locations.invalid && (locations.dirty || locations.touched)" translate>Location requried.</span>
+            </div>
+
             <label for="registerUsername">Username</label>
             <input id="registerUsername" maxlength="15" type="text" autocomplete="username" formControlName="username">
             <div class="error"><span

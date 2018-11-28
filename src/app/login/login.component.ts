@@ -4,7 +4,9 @@ import {ValidationService} from '../shared/services/validation.service';
 import {LoginModel} from '../shared/models/login.model';
 import {AuthenticationService} from '../shared/services/authentication.service';
 import {Router} from '@angular/router';
-import {UserModel} from '../shared/models/user.model';
+import {LocationService} from '../shared/services/location.service';
+import {LocationModel} from '../shared/models/location.model';
+import {Observable} from 'rxjs';
 
 @Component({
   selector: 'app-login',
@@ -12,20 +14,22 @@ import {UserModel} from '../shared/models/user.model';
   templateUrl: 'login.component.html'
 })
 export class LoginComponent implements OnInit {
+  errorMessage: string;
   isLoading: boolean;
+  isRegistering: boolean;
+  locations$: Observable<LocationModel[]>;
   loginForm: FormGroup;
   registerUser: FormGroup;
-  errorMessage: string;
   showNewUser: boolean;
-  isRegistering: boolean;
 
   constructor(private fb: FormBuilder, private  validationService: ValidationService, private auth: AuthenticationService,
-              private router: Router) {
+              private router: Router, private locationService: LocationService) {
   }
 
   ngOnInit() {
     this.isLoading = true;
     this.setupForm();
+    this.loadLocations();
     this.auth.isLoggedIn().subscribe(result => {
       if (result) {
         this.isLoading = false;
@@ -34,6 +38,10 @@ export class LoginComponent implements OnInit {
         this.isLoading = false;
       }
     });
+  }
+
+  private loadLocations() {
+    this.locations$ = this.locationService.getLocations();
   }
 
   private setupForm() {
@@ -46,6 +54,7 @@ export class LoginComponent implements OnInit {
       email: ['', Validators.compose([Validators.required, this.validationService.emailValidator])],
       password: ['', Validators.required],
       username: ['', Validators.required],
+      locations: ['', Validators.required],
       name: ['', Validators.required]
     });
   }

@@ -6,12 +6,22 @@ import {CommonModule} from '@angular/common';
 import {LoginRouteModule} from './login.route';
 import {ForgotPasswordComponent} from './forgot-password/forgot-password.component';
 import {RouterModule} from '@angular/router';
+import {NgSelectModule} from '@ng-select/ng-select';
 
 
 @NgModule({
-  imports: [LoginRouteModule, FormsModule, RouterModule, ReactiveFormsModule, CommonModule, SharedModule],
+  imports: [
+    LoginRouteModule,
+    FormsModule,
+    RouterModule,
+    NgSelectModule,
+    ReactiveFormsModule,
+    CommonModule,
+    SharedModule
+  ],
   exports: [],
-  declarations: [LoginComponent, ForgotPasswordComponent],
+  declarations: [LoginComponent,
+    ForgotPasswordComponent],
   providers: [],
 })
 export class LoginModule {
