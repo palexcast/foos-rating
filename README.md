@@ -1,6 +1,6 @@
 # Evry Foos Rating System
 
-A super simple fuss rating system based on the Chess [ELO-rating](https://no.wikipedia.org/wiki/Elo-rating).
+A super simple foos rating system based on the Chess [ELO-rating](https://no.wikipedia.org/wiki/Elo-rating).
 
 The following web project is an *Angular 7.x* project. The styling is built on [Bootstrap 4.x Beta](https://getbootstrap.com/) as CSS framework. Styling is otherwise implemented using [SCSS](http://sass-lang.com/guide). 
 
@@ -25,7 +25,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 Clone the project:
 
-`git clone https://github.com/ertkjern/fuss-rating.git`
+`git clone https://github.com/palexcast/foos-rating.git`
 
 Install all packages using either npm or yarn:
 
