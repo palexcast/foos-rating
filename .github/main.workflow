@@ -1,8 +1,5 @@
 workflow "Deploy" {
-  on:
-    push:
-      branches:
-        - master
+  on = "push"
   resolves = "Deploy Production Site"
 }
 
