@@ -32,12 +32,12 @@ export class HomeComponent implements OnInit {
   }
 
   hasReadRelease() {
-    const releaseRead = localStorage.getItem('fuss-release-read');
+    const releaseRead = localStorage.getItem('foos-release-read');
     this.hasReadReleaseNote = releaseRead === environment.version ? true : false;
   }
 
   close() {
-    localStorage.setItem('fuss-release-read', environment.version);
+    localStorage.setItem('foos-release-read', environment.version);
     this.hasReadReleaseNote = true;
   }
 }
