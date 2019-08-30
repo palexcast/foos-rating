@@ -9,7 +9,7 @@ import {AngularFirestore} from '@angular/fire/firestore';
 })
 export class MatchmakerComponent implements OnInit {
 
-  selectedGame: string
+  selectedGame: string;
   gameTypes: any;
 
   constructor(private afs: AngularFirestore) {

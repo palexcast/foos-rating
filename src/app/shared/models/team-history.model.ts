@@ -1,7 +1,7 @@
 export class TeamHistoryModel {
   created: any;
   lastUpdated: any;
-  team1Uid: string
+  team1Uid: string;
   team1Name: string;
   team1Player1Name: string;
   team1Player2Name: string;
