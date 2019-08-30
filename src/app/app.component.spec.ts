@@ -17,17 +17,17 @@ describe('AppComponent', () => {
     const app = fixture.debugElement.componentInstance;
     expect(app).toBeTruthy();
   }));
-  it(`should have as title 'fuss-rating'`, async(() => {
+  it(`should have as title 'foos-rating'`, async(() => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.debugElement.componentInstance;
-    expect(app.title).toEqual('fuss-rating');
+    expect(app.title).toEqual('foos-rating');
   }));
   /*
   it('should render title in a h1 tag', async(() => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('h1').textContent).toContain('Welcome to fuss-rating!');
+    expect(compiled.querySelector('h1').textContent).toContain('Welcome to foos-rating!');
   }));
   */
 });
