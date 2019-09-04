@@ -16,29 +16,29 @@ export class HistoryService {
   }
 
   private static convertUserHistory(history: HistoryModel): GenericHistoryModel {
-    const tmp = new GenericHistoryModel();
-    tmp.created = history.created;
-    tmp.lastUpdated = history.lastUpdated;
-    tmp.winnerName = history.player1Name;
-    tmp.winnerOldRating = history.player1OldRating;
-    tmp.winnerNewRating = history.player1NewRating;
-    tmp.loserName = history.player2Name;
-    tmp.loserOldRating = history.player2OldRating;
-    tmp.loserNewRating = history.player2NewRating;
-    return tmp;
+    return new GenericHistoryModel({
+      created: history.created,
+      lastUpdated: history.lastUpdated,
+      winnerName: history.player1Name,
+      winnerOldRating: history.player1OldRating,
+      winnerNewRating: history.player1NewRating,
+      loserName: history.player2Name,
+      loserOldRating: history.player2OldRating,
+      loserNewRating: history.player2NewRating
+    });
   }
 
   private static convertTeamHistory(history: TeamHistoryModel): GenericHistoryModel {
-    const tmp = new GenericHistoryModel();
-    tmp.created = history.created;
-    tmp.lastUpdated = history.lastUpdated;
-    tmp.winnerName = history.team1Name;
-    tmp.winnerOldRating = history.team1OldRating;
-    tmp.winnerNewRating = history.team1NewRating;
-    tmp.loserName = history.team2Name;
-    tmp.loserOldRating = history.team2OldRating;
-    tmp.loserNewRating = history.team2NewRating;
-    return tmp;
+    return new GenericHistoryModel({
+      created: history.created,
+      lastUpdated: history.lastUpdated,
+      winnerName: history.team1Name,
+      winnerOldRating: history.team1OldRating,
+      winnerNewRating: history.team1NewRating,
+      loserName: history.team2Name,
+      loserOldRating: history.team2OldRating,
+      loserNewRating: history.team2NewRating
+    });
   }
 
   getSoloHistory(top: number): Observable<HistoryModel[]> {

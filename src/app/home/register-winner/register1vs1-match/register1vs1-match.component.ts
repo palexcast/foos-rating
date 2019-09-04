@@ -42,7 +42,8 @@ export class Register1vs1MatchComponent implements OnInit {
     if (!(this.player1 && this.player2)) {
       return;
     }
-    if (!confirm('Did ' + this.player1.name + ' win?')) {
+    const player1Won = confirm('Did ' + this.player1.name + ' win?');
+    if (!player1Won) {
       console.log('Cancel');
       return;
     }
@@ -62,11 +63,11 @@ export class Register1vs1MatchComponent implements OnInit {
   }
 
   private createMatch(player1: UserModel, player2): MatchModel {
-    return {
+    return new MatchModel({
       player1: player1,
       player2: player2,
       lastUpdated: new Date(),
       created: new Date().getTime()
-    };
+    });
   }
 }
