@@ -28,7 +28,7 @@ export class ForgotPasswordComponent implements OnInit {
       if (result && !result.error) {
         this.passwordReset = true;
         this.errorMessage = null;
-      } else{
+      } else {
         this.errorMessage = result.data.message;
       }
     }, error => {

@@ -33,7 +33,7 @@ export class HomeComponent implements OnInit {
 
   hasReadRelease() {
     const releaseRead = localStorage.getItem('foos-release-read');
-    this.hasReadReleaseNote = releaseRead === environment.version ? true : false;
+    this.hasReadReleaseNote = releaseRead === environment.version;
   }
 
   close() {

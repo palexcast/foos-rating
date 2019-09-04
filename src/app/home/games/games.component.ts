@@ -39,20 +39,21 @@ export class GamesComponent implements OnInit {
   }
 
   deleteMatch(match: MatchModel) {
-    if (match.id) {
-      if (confirm('Are you sure?')) {
-        this.loadingMatchId = match.id;
-        this.matchmaker.deleteMatch(match).then(() => {
-          this.loadingMatchId = null;
-          console.log('delted');
-        }, err => {
-          this.loadingMatchId = null;
-          console.log(err);
-        });
-      } else {
-        console.log('abort');
-      }
+    if (!match.id) {
+      return;
     }
+    if (!confirm('Are you sure?')) {
+      console.log('abort');
+      return;
+    }
+    this.loadingMatchId = match.id;
+    this.matchmaker.deleteMatch(match).then(() => {
+      this.loadingMatchId = null;
+      console.log('delted');
+    }, err => {
+      this.loadingMatchId = null;
+      console.log(err);
+    });
   }
 
   private loadMatches() {

@@ -43,13 +43,14 @@ export class GameSettingsComponent implements OnInit {
   }
 
   createMatch() {
-    if (this.player1 && this.player2Id) {
-      const oponent = this.users.filter(u => u.uid === this.player2Id)[0];
-      this.matchmaker.createMatch(this.player1, oponent).then(result => {
-        this.matchCreated = true;
-      }, () => {
-        this.matchCreated = false;
-      });
+    if (!(this.player1 && this.player2Id)) {
+      return;
     }
+    const opponent = this.users.filter(u => u.uid === this.player2Id)[0];
+    this.matchmaker.createMatch(this.player1, opponent).then(result => {
+      this.matchCreated = true;
+    }, () => {
+      this.matchCreated = false;
+    });
   }
 }

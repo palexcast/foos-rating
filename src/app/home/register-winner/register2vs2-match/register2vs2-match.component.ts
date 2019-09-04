@@ -87,13 +87,9 @@ export class Register2vs2MatchComponent implements OnInit {
 
   getOrRegisterTeam(player1: UserModel, player2: UserModel): Observable<TeamModel> {
     return this.teamService.teamExists(player1.uid, player2.uid).pipe(
-      switchMap(exists => {
-        if (exists) {
-          return this.teamService.getTeam(player1.uid, player2.uid);
-        } else {
-          return this.teamService.register(player1.uid, player1.name, player2.uid, player2.name, uniqueNamesGenerator());
-        }
-      }),
+      switchMap(exists => exists
+        ? this.teamService.getTeam(player1.uid, player2.uid)
+        : this.teamService.register(player1.uid, player1.name, player2.uid, player2.name, uniqueNamesGenerator())),
     );
   }
 

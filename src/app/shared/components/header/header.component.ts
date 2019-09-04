@@ -20,7 +20,7 @@ export class HeaderComponent implements OnInit {
     });
   }
 
-  logout(){
+  logout() {
     this.auth.logout();
   }
 }

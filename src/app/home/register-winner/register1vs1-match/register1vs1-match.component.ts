@@ -39,21 +39,23 @@ export class Register1vs1MatchComponent implements OnInit {
   }
 
   registerWinner() {
-    if (this.player1 && this.player2) {
-      if (confirm('Did ' + this.player1.name + ' win?')) {
-        this.isLoading = true;
-        const matchModel: MatchModel = this.createMatch(this.player1, this.player2);
-        this.matchmaker.registerWinner(true, matchModel).then(result => {
-          this.isLoading = false;
-          if (result) {
-            this.matchResult = result;
-            this.hasRegisterd = true;
-          }
-        });
-      } else {
-        console.log('Cancel');
-      }
+    if (!(this.player1 && this.player2)) {
+      return;
     }
+    const player1Won = confirm('Did ' + this.player1.name + ' win?');
+    if (!player1Won) {
+      console.log('Cancel');
+      return;
+    }
+    this.isLoading = true;
+    const matchModel: MatchModel = this.createMatch(this.player1, this.player2);
+    this.matchmaker.registerWinner(true, matchModel).then(result => {
+      this.isLoading = false;
+      if (result) {
+        this.matchResult = result;
+        this.hasRegisterd = true;
+      }
+    });
   }
 
   registerNewMatch() {
@@ -61,12 +63,11 @@ export class Register1vs1MatchComponent implements OnInit {
   }
 
   private createMatch(player1: UserModel, player2): MatchModel {
-    const match: MatchModel = {
+    return new MatchModel({
       player1: player1,
       player2: player2,
       lastUpdated: new Date(),
       created: new Date().getTime()
-    };
-    return match;
+    });
   }
 }

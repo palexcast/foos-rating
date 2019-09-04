@@ -19,6 +19,12 @@ const AngularFirestoreStub = {
   }),
 };
 
+const userWithRating = (rating): UserModel => {
+  const user = new UserModel();
+  user.rating = rating;
+  return user;
+};
+
 const setup1v1Match = (player1Elo, player2Elo): MatchModel => {
   const match = new MatchModel();
   match.player1 = userWithRating(player1Elo);
@@ -35,11 +41,6 @@ const setup2v2Match = (team1Rating, team2Rating): TeamMatchModel => {
   return match;
 };
 
-const userWithRating = (rating): UserModel => {
-  const user = new UserModel();
-  user.rating = rating;
-  return user;
-};
 
 describe('MatchmakerService', () => {
   beforeEach(() => TestBed.configureTestingModule({
