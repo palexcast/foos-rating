@@ -2,15 +2,12 @@
 
 A super simple foos rating system based on the Chess [ELO-rating](https://no.wikipedia.org/wiki/Elo-rating).
 
-The following web project is an *Angular 7.x* project. The styling is built on [Bootstrap 4.x Beta](https://getbootstrap.com/) as CSS framework. Styling is otherwise implemented using [SCSS](http://sass-lang.com/guide). 
+The following web project is an *Angular 7.x* project. The styling is built on [Bootstrap 4.x Beta](https://getbootstrap.com/) as CSS framework. Styling is otherwise implemented using [SCSS](http://sass-lang.com/guide).
 
-After you have played a new match, you can register a winner and a loser. Then the system will calculate 
-a rating based on the rating between the two players. 
+After you have played a new match, you can register a winner and a loser. Then the system will calculate a rating based on the rating between the two players.
 
-You can easily create matches and register fake ratings. 
-This is a gentleman system. Use it with care and don't ruin the fun
-
-
+You can easily create matches and register fake ratings.
+This is a gentleman system. Use it with care and don't ruin the fun.
 
 ## Content
 
@@ -31,37 +28,35 @@ Install all packages using either npm or yarn:
 
 `npm install` or `yarn install`
 
-To be able to use add matches you have to create a new Firebase datbase. This is a free service to use. 
-I recommend to create a new *Firestore database* and enable *email authentication* when developing. 
+To be able to use add matches you have to create a new Firebase datbase. This is a free service to use.
+I recommend to create a new *Firestore database* and enable *email authentication* when developing.
 
-After you have created a new Firebase database, you can add the firebase information to the `environment.ts` files 
-A more detailed description on how to setup Firebase with Angular can be found [here](https://github.com/angular/angularfire2) and a 
-more detailed description of Firebase itself can be foun [here](https://firebase.google.com/).
+After you have created a new Firebase database, you can add the firebase information to the `environment.ts` files
+A more detailed description on how to setup Firebase with Angular can be found [here](https://github.com/angular/angularfire2) and a more detailed description of Firebase itself can be foun [here](https://firebase.google.com/).
 
 After you have setup Firebase, you can run the project like this:
 
-`npm start` 
+`npm start`
 
 Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
-
 ## Contribution
 
-Contribution is done using Pull Requests and creating Issues. 
-You know the deal. 
+Contribution is done using Pull Requests and creating Issues.
+You know the deal.
 
 Before creating a Pull Request you should run the following commands:
 
-```
-npm run build // to verify that everything is running
-```
-
-```
-npm run test // to verify nothing has been broken
+```shell
+$ npm run build # to verify that everything is running
 ```
 
+```shell
+$ npm run test # to verify nothing has been broken
 ```
-npm run lint // to avoid bad code, as missing semicolons.
+
+```shell
+$ npm run lint # to avoid bad code, as missing semicolons.
 ```
 
 ## Scaffolding
